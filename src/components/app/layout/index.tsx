@@ -1,34 +1,25 @@
 import React from 'react'
-import {
-  SafeAreaView,
-  StatusBar,
-  StyleSheet,
-  useColorScheme,
-} from 'react-native'
-import { COLORS } from '../../../shared/theme'
+import { SafeAreaView, StatusBar, StyleSheet, View } from 'react-native'
+import { useDarkMode } from '../../../shared/hooks/useDarkMode'
+
 import Main from '../routes'
 
 const Layout = (): JSX.Element => {
-  const isDarkMode = useColorScheme() === 'dark'
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? COLORS.dark : COLORS.white,
-  }
+  const { backgroundStylePrimary, isDarkMode } = useDarkMode()
 
   return (
     <SafeAreaView
       style={{
-        ...backgroundStyle,
+        ...backgroundStylePrimary,
         ...styles.sectionContainer,
       }}>
       <StatusBar
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
+        backgroundColor={backgroundStylePrimary.backgroundColor}
       />
-      {/* <ScrollView
-        style={backgroundStyle}>
-      </ScrollView> */}
-      <Main />
+      <View style={{ ...backgroundStylePrimary, ...styles.sectionContainer }}>
+        <Main />
+      </View>
     </SafeAreaView>
   )
 }
