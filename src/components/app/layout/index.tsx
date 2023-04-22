@@ -1,6 +1,6 @@
 import React from 'react'
 import { SafeAreaView, StatusBar, StyleSheet, View } from 'react-native'
-import { useDarkMode } from '../../../shared/hooks/useDarkMode'
+import { useDarkMode } from '@shared/hooks/useDarkMode'
 
 import Main from '../routes'
 

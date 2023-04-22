@@ -1,24 +1,11 @@
 import React from 'react'
-import { StyleSheet } from 'react-native'
 import { createStackNavigator } from '@react-navigation/stack'
-import { View } from 'react-native'
 
 import { RootMoreStackParamList } from './more.model'
-import { MoreScreen } from '../../../../../screens'
-import { useDarkMode } from '../../../../../shared/hooks/useDarkMode'
-import Button from '../../../../../shared/components/ui/Button'
+import { useDarkMode } from '@shared/hooks/useDarkMode'
+import { MoreScreen } from '@screens/index'
 
 const Stack = createStackNavigator<RootMoreStackParamList>()
-
-const HeaderRight = () => {
-  return (
-    <View style={styles.headerRight}>
-      <Button type="ICON" name="search-outline" />
-      <Button type="ICON" name="filter" />
-      <Button type="ICON" name="ellipsis-vertical" />
-    </View>
-  )
-}
 
 const StackNavigator = () => {
   const { backgroundStylePrimary, textColorPrimary } = useDarkMode()
@@ -42,9 +29,7 @@ const StackNavigator = () => {
         name="HomeMore"
         component={MoreScreen}
         options={{
-          headerTitle: 'Library',
-          // eslint-disable-next-line react/no-unstable-nested-components
-          headerRight: () => <HeaderRight />,
+          headerTitle: 'More',
         }}
       />
     </Stack.Navigator>
@@ -52,12 +37,3 @@ const StackNavigator = () => {
 }
 
 export default StackNavigator
-
-const styles = StyleSheet.create({
-  headerRight: {
-    width: 150,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-})

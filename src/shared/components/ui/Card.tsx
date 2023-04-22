@@ -8,7 +8,7 @@ import {
 } from 'react-native'
 import React from 'react'
 import LinearGradient from 'react-native-linear-gradient'
-import { useDarkMode } from '../../hooks/useDarkMode'
+import { useDarkMode } from '@shared/hooks/useDarkMode'
 
 const windowWidth = Dimensions.get('window').width
 

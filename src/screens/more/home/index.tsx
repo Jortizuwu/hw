@@ -1,42 +1,12 @@
-import { FlatList, RefreshControl, StyleSheet, View } from 'react-native'
+import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
-import { Props } from '../home.model'
-import Card from '../../../shared/components/ui/Card'
-
-const DATA = [
-  { id: '1' },
-  { id: '2' },
-  { id: '3' },
-  { id: '4' },
-  { id: '5' },
-  { id: '8' },
-  { id: '9' },
-]
+import { Props } from './more.model'
 
 const Home = ({}: Props) => {
-  const [refreshing, setRefreshing] = React.useState(false)
-
-  const onRefresh = React.useCallback(() => {
-    setRefreshing(true)
-    setTimeout(() => {
-      setRefreshing(false)
-    }, 2000)
-  }, [])
-
   return (
     <View style={styles.container}>
-      <FlatList
-        data={DATA}
-        refreshControl={
-          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
-        }
-        // eslint-disable-next-line react/no-unstable-nested-components
-        ItemSeparatorComponent={() => <View style={styles.separator} />}
-        renderItem={() => <Card />}
-        keyExtractor={item => item.id}
-        numColumns={2}
-      />
+      <Text>MORE UWU</Text>
     </View>
   )
 }

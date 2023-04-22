@@ -2,7 +2,7 @@ import { FlatList, RefreshControl, StyleSheet, View } from 'react-native'
 import React from 'react'
 
 import { Props } from './home.model'
-import Card from '../../../shared/components/ui/Card'
+import Card from '@shared/components/ui/Card'
 
 const DATA = [
   { id: '1' },

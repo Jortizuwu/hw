@@ -1,12 +1,11 @@
 import React from 'react'
-import { StyleSheet } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 import { createStackNavigator } from '@react-navigation/stack'
 
 import { RootStackLibraryParamList } from './library.model'
-import { HomeLibrary } from '../../../../../screens'
-import { useDarkMode } from '../../../../../shared/hooks/useDarkMode'
-import { View } from 'react-native'
-import Button from '../../../../../shared/components/ui/Button'
+import { useDarkMode } from '@shared/hooks/useDarkMode'
+import Button from '@shared/components/ui/Button'
+import { HomeLibrary } from '@screens/index'
 
 const Stack = createStackNavigator<RootStackLibraryParamList>()
 

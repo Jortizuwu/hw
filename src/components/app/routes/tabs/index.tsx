@@ -3,8 +3,8 @@ import { createMaterialBottomTabNavigator } from '@react-navigation/material-bot
 
 import { LibraySack, MoreStack } from '../stack'
 import { RootTabsParamList, TABS } from './tabs.model'
-import Icon from '../../../../shared/components/ui/Icon'
-import { useDarkMode } from '../../../../shared/hooks/useDarkMode'
+import { useDarkMode } from '@shared/hooks/useDarkMode'
+import Icon from '@shared/components/ui/Icon'
 
 const TABS_ROUTES: TABS[] = [
   {
