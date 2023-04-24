@@ -5,7 +5,7 @@ import { createStackNavigator } from '@react-navigation/stack'
 import { RootStackLibraryParamList } from './library.model'
 import { useDarkMode } from '@shared/hooks/useDarkMode'
 import Button from '@shared/components/ui/Button'
-import { HomeLibrary } from '@screens/index'
+import { HomeLibrary, DetailsScreen } from '@screens/index'
 
 const Stack = createStackNavigator<RootStackLibraryParamList>()
 
@@ -36,13 +36,21 @@ const StackNavigator = () => {
           elevation: 0,
           shadowOpacity: 0,
         },
+        presentation: 'transparentModal',
       }}>
       <Stack.Screen
         name="HomeLibrary"
         component={HomeLibrary}
         options={{
           headerTitle: 'Library',
-          // eslint-disable-next-line react/no-unstable-nested-components
+          headerRight: () => <HeaderRight />,
+        }}
+      />
+      <Stack.Screen
+        name="DetailsLibrary"
+        component={DetailsScreen}
+        options={{
+          headerTitle: '',
           headerRight: () => <HeaderRight />,
         }}
       />

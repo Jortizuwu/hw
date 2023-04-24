@@ -7,16 +7,34 @@ import {
   View,
 } from 'react-native'
 import React from 'react'
+import { StackNavigationProp } from '@react-navigation/stack'
 import LinearGradient from 'react-native-linear-gradient'
+import { useNavigation } from '@react-navigation/native'
+
 import { useDarkMode } from '@shared/hooks/useDarkMode'
+import { RootStackLibraryParamList } from '@components/app/routes/stack/library/library.model'
 
 const windowWidth = Dimensions.get('window').width
 
-const Card = () => {
+type NavigationProps = StackNavigationProp<RootStackLibraryParamList>
+
+interface Props {
+  id: string
+}
+
+const Card = ({ id }: Props) => {
   const { textColorSecondary } = useDarkMode()
+  const navigate = useNavigation<NavigationProps>()
+
+  const HandlePress = () => {
+    navigate.navigate('DetailsLibrary', {
+      id,
+    })
+  }
 
   return (
     <TouchableOpacity
+      onPress={HandlePress}
       style={{
         ...styles.container,
         width: windowWidth * 0.45,

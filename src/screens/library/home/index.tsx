@@ -31,10 +31,10 @@ const Home = ({}: Props) => {
         refreshControl={
           <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
         }
-        // eslint-disable-next-line react/no-unstable-nested-components
         ItemSeparatorComponent={() => <View style={styles.separator} />}
-        renderItem={() => <Card />}
+        renderItem={({ item }) => <Card id={item.id} />}
         keyExtractor={item => item.id}
+        ListFooterComponent={() => <View style={styles.separator} />}
         numColumns={2}
       />
     </View>

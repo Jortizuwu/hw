@@ -15,7 +15,10 @@ const Layout = (): JSX.Element => {
       }}>
       <StatusBar
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStylePrimary.backgroundColor}
+        networkActivityIndicatorVisible={true}
+        translucent={true}
+        backgroundColor="transparent"
+        // backgroundColor={backgroundStylePrimary.backgroundColor}
       />
       <View style={{ ...backgroundStylePrimary, ...styles.sectionContainer }}>
         <Main />

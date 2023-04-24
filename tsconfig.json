@@ -5,7 +5,8 @@
     "paths": {
       "@components/*": ["components/*"],
       "@screens/*": ["screens/*"],
-      "@shared/*": ["shared/*"]
+      "@shared/*": ["shared/*"],
+      "@redux/*": ["redux/*"]
     }
   }
 }
