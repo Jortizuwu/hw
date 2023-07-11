@@ -6,7 +6,7 @@
       "@components/*": ["components/*"],
       "@screens/*": ["screens/*"],
       "@shared/*": ["shared/*"],
-      "@redux/*": ["redux/*"]
+      "@store/*": ["store/*"]
     }
   }
 }

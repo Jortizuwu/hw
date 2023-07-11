@@ -4,17 +4,19 @@ import { Props } from './details.model'
 import LinearGradient from 'react-native-linear-gradient'
 import { useDarkMode } from '@shared/hooks/useDarkMode'
 import List from './components/List'
+import { useStore } from '../../store/ui'
 
 const windowHeight = Dimensions.get('window').height
 
 const Details = ({ navigation }: Props) => {
   const { backgroundStylePrimary } = useDarkMode()
+  const { isScrolling } = useStore()
 
   useEffect(() => {
     navigation.setOptions({
       headerTransparent: true,
     })
-  }, [navigation])
+  }, [navigation, isScrolling])
 
   return (
     <View style={{ ...styles.container, height: windowHeight * 1 }}>

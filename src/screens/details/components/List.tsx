@@ -1,8 +1,15 @@
-import { FlatList, StyleSheet, View } from 'react-native'
+import {
+  FlatList,
+  NativeScrollEvent,
+  NativeSyntheticEvent,
+  StyleSheet,
+  View,
+} from 'react-native'
 import React from 'react'
 import Card from '@shared/components/ui/Card'
 import { GLOBAL_THEME } from '@shared/theme'
 import Main from './Main'
+import { useStore } from '../../../store/ui'
 
 const DATA = [
   { id: '1' },
@@ -15,6 +22,15 @@ const DATA = [
 ]
 
 const List = () => {
+  const { isScrolling, handleScrolling, handleRestScrolling } = useStore()
+
+  console.log(isScrolling, handleRestScrolling, handleScrolling)
+  console.log('iwi')
+
+  const onScroll = (e: NativeSyntheticEvent<NativeScrollEvent>) => {
+    console.log(e)
+  }
+
   return (
     <View
       style={{
@@ -22,6 +38,7 @@ const List = () => {
         ...GLOBAL_THEME.container,
       }}>
       <FlatList
+        onScroll={onScroll}
         ListHeaderComponent={<Main />}
         showsVerticalScrollIndicator={false}
         data={DATA}

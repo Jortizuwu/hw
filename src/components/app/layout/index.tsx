@@ -3,8 +3,10 @@ import { SafeAreaView, StatusBar, StyleSheet, View } from 'react-native'
 import { useDarkMode } from '@shared/hooks/useDarkMode'
 
 import Main from '../routes'
+import { useStore } from '../../../store/ui'
 
 const Layout = (): JSX.Element => {
+  const { isScrolling } = useStore()
   const { backgroundStylePrimary, isDarkMode } = useDarkMode()
 
   return (
@@ -17,8 +19,9 @@ const Layout = (): JSX.Element => {
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
         networkActivityIndicatorVisible={true}
         translucent={true}
-        backgroundColor="transparent"
-        // backgroundColor={backgroundStylePrimary.backgroundColor}
+        backgroundColor={
+          isScrolling ? backgroundStylePrimary.backgroundColor : 'transparent'
+        }
       />
       <View style={{ ...backgroundStylePrimary, ...styles.sectionContainer }}>
         <Main />
